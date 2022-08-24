@@ -1,0 +1,47 @@
+<section>
+
+  <div>
+    <h2>Productos </h2>
+
+    {{#if productos}}
+      <section>
+           <a href="/api/productos/add">
+          <button class="btn btn-success">agregar producto</button>
+        </a>
+          <table class="table ">
+          <thead class="table bg-secondary text-center">
+            <tr>
+              <th scope="col">#</th>
+              <th scope="col">First</th>
+              <th scope="col">Last</th>
+              <th scope="col">Handle</th>
+            </tr>
+          </thead>
+          <tbody class="table-secondary">
+               {{#each productos}}
+          <tr class="text-center ">
+            <td class="align-middle">{{this.id}}</td>
+            <td class="align-middle">{{this.nombre}}</td>
+            <td class="align-middle">{{this.precio}}</td>
+            <td class="align-middle">
+              <img src="{{this.img}}" width="15%" alt="{{this.nombre}}" />
+            </td>
+          </tr>
+         
+        {{/each}}
+          </tbody>
+        </table>
+
+        
+      </section>
+    {{else}}
+      <section class="text-center">
+        <h2>No hay producto en sistema</h2>
+        <a href="/api/productos/add">
+          <button class="btn btn-success">agregar producto</button>
+        </a>
+
+      </section>
+    {{/if}}
+  </div>
+</section>

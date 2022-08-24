@@ -1,8 +1,22 @@
 let productos = [];
 let id = 1;
+
 exports.getAll = (req, res, next) => {
-  res.send(productos);
+  res.render("productos",{productos});
 };
+
+
+exports.add = (req, res, next) => {
+  const { nombre, precio, img } = req.body;
+  const newProduct = { id, nombre, precio, img };
+  productos.push(newProduct);
+  id = id + 1;
+
+  res.render("form");
+};
+
+
+
 exports.getById = async (req, res, next) => {
   const { id } = req.params;
   try {
@@ -16,22 +30,8 @@ exports.getById = async (req, res, next) => {
     next(err);
   }
 };
-exports.add = (req, res, next) => {
-  const { nombre, precio, cantidad } = req.body;
 
-  try {
-    const newProducto = { id, nombre, precio, cantidad };
-    if (!nombre || !precio || !cantidad) {
-      res.send("Debes completar el producto con Nombre, precio y cantidad");
-    } else {
-      productos.push(newProducto);
-      res.status(201).send(newProducto);
-      id = id + 1;
-    }
-  } catch (err) {
-    next(err);
-  }
-};
+
 exports.edit = (req, res, next) => {
   const { id } = req.params;
   const { nombre, precio, cantidad } = req.body;

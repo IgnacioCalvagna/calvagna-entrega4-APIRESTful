@@ -1,0 +1,37 @@
+
+
+<h2 class="text-secondary">Ingrese Producto</h2>
+<section style="width:35%; margin:0 auto;" class="text-center p-4 bg-light">
+  <form  action="/api/productos/add" method="POST">
+    <div class="mb-3">
+      <label
+        class="form-label fw-bold text-secondary fs-3"
+        for="name"
+      >Nombre:</label>
+      <input class="form-control" type="text" name="nombre"required />
+    </div>
+    <div class="mb-3">
+      <label
+        class="form-label fw-bold text-secondary fs-3"
+        for="price"
+      >Precio:</label>
+      <input class="form-control" type="number" name="precio" required/>
+    </div>
+    <div class="mb-3">
+      <label class="form-label fw-bold text-secondary fs-3" for="picture">Foto
+        URL:</label>
+      <input class="form-control" type="url" name="img" required/>
+    </div>
+    <div class="mb-3">
+      <input class="btn btn-success" type="submit"  value="Enviar" />
+
+     
+    </div>
+  </form>
+  <div>
+     <a href="./">
+      <button class="btn btn-info">Ver Productos</button>
+    </a>
+  </div>
+</section>
+
